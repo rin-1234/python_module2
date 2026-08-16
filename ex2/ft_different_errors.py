@@ -1,4 +1,3 @@
-
 def garden_operations(operation_number: int) -> None:
     print(f"Testing operation {operation_number}...")
     if operation_number == 0:
@@ -8,13 +7,12 @@ def garden_operations(operation_number: int) -> None:
     elif operation_number == 2:
         open('hogehoge')
     elif operation_number == 3:
-        "abc" + 123 
-    return operation_number
+        "abc" + 123
 
 
 def test_error_types(temp: int) -> None:
     try:
-        devnull = garden_operations(temp)
+        garden_operations(temp)
     except ValueError as e:
         print(f"Caught ValueError error: {e}")
     except ZeroDivisionError as e:
@@ -25,6 +23,7 @@ def test_error_types(temp: int) -> None:
         print(f"Caught TypeError uuerror: {e}")
     except Exception as e:
         print(f"Caught error: {e}")
+
 
 if __name__ == "__main__":
     print("=== Garden Error Types Demo ===")

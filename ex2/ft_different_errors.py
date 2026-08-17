@@ -5,24 +5,24 @@ def garden_operations(operation_number: int) -> None:
     elif operation_number == 1:
         5 / 0
     elif operation_number == 2:
-        open('hogehoge')
+        open('/non/existent/file')
     elif operation_number == 3:
         "abc" + 123
+    else:
+        print("Operation completed successfully")
 
 
 def test_error_types(temp: int) -> None:
     try:
         garden_operations(temp)
     except ValueError as e:
-        print(f"Caught ValueError error: {e}")
+        print(f"Caught ValueError: {e}")
     except ZeroDivisionError as e:
-        print(f"Caught ZeroDivisionError error: {e}")
+        print(f"Caught ZeroDivisionError: {e}")
     except FileNotFoundError as e:
-        print(f"Caught FileNotFoundError error: {e}")
+        print(f"Caught FileNotFoundError: {e}")
     except TypeError as e:
-        print(f"Caught TypeError uuerror: {e}")
-    except Exception as e:
-        print(f"Caught error: {e}")
+        print(f"Caught TypeError: {e}")
 
 
 if __name__ == "__main__":
@@ -31,5 +31,6 @@ if __name__ == "__main__":
     test_error_types(1)
     test_error_types(2)
     test_error_types(3)
-    print("Operation completed successfully")
+    test_error_types(4)
+    print()
     print("All error types tested successfully!")

@@ -28,11 +28,12 @@ def raise_exception() -> None:
 
     print("Testing catching all garden errors...")
     try:
-        raise GardenError("The tomato plant is wilting!")
+        raise PlantError("The tomato plant is wilting!")
     except GardenError as e:
         print(f"Caught GardenError: {e}")
+
     try:
-        raise GardenError("Not enough water in the tank!")
+        raise WaterError("Not enough water in the tank!")
     except GardenError as e:
         print(f"Caught GardenError: {e}")
 

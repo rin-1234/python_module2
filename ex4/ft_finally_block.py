@@ -20,37 +20,27 @@ def water_plant(plant_name: str) -> None:
         raise PlantError(f"Invalid plant name to water: '{plant_name}'")
 
 
-def test_watering_system() -> None:
+def test_watering_system(s1: str, s2: str, s3: str) -> None:
     print()
-    print("Testing valid plants...")
     print("Opening watering system")
     try:
-        water_plant("Tomato")
-        water_plant("Lettuce")
-        water_plant("Carrots")
+        water_plant(s1)
+        water_plant(s2)
+        water_plant(s3)
     except PlantError as e:
         print(f"Caught PlantError: {e}")
         print(".. ending tests and returning to main")
-    finally:
-        print("Closing watering system")
-
-    print()
-    print("Testing invalid plants...")
-    print("Opening watering system")
-    try:
-        water_plant("Tomato")
-        water_plant("lettuce")
-        water_plant("Carrots")
-    except PlantError as e:
-        print(f"Caught PlantError: {e}")
-        print(".. ending tests and returning to main")
+        return
     finally:
         print("Closing watering system")
 
 
 def main() -> None:
     print("=== Garden Watering System ===")
-    test_watering_system()
+    print("Testing valid plants...")
+    test_watering_system("Tomato", "Lettuce", "Carrots")
+    print("Testing invalid plants...")
+    test_watering_system("Tomato", "lettuce", "Carrots")
     print()
     print("Cleanup always happens, even with errors!")
 
